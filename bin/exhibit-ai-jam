@@ -14,6 +14,9 @@ cd /opt/ai-jam
 ./RUN.sh &
 PIDS="$PIDS $!"
 
+sleep 10s
+PIDS="$PIDS $!"
+
 # Launch the exhibit in the background
 kiosk-browser --kiosk --fullscreen --serve /opt/ai-jam/public index.html &
 PIDS="$PIDS $!"
