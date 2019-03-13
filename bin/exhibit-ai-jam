@@ -19,7 +19,8 @@ PIDS="$PIDS $!"
 
 # Launch the exhibit in the background
 kiosk-browser --kiosk --fullscreen --serve /opt/ai-jam/public index.html &
-PIDS="$PIDS $!"
+PID_UI=$!
+PIDS="$PIDS $PID_UI"
 
 # Wait for the exhibit to finish or until the signal trap is triggered
-wait
+wait $PID_UI
