@@ -1,4 +1,5 @@
 xset -dpms
 xset s off
+feh --bg-fill ~/Pictures/lalalab-wallpaper.png
 #fakeResolution 3840x2160
 hidecursor repeat-exhibit exhibit-kiosk &
