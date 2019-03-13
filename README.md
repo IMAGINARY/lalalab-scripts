@@ -1,6 +1,6 @@
-# MiMa script
+# Lalalab script
 
-These scripts are used on certain stations at the MiMa museum in Oberwolfach.
+These scripts are used on certain stations at the Lalalab exhbition.
 
 # Installation
 The scripts are installed (`rsync`ed) into `~/bin` via
