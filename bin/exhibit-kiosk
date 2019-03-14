@@ -5,7 +5,7 @@
 # it easy to kill it (by a script or manually)
 
 # Launch the exhibit in the background
-kiosk-browser &
+kiosk-browser $KIOSK_OPTS &
 PID=$!
 
 # Kill the exhibit if it is still running whe the script exits

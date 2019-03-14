@@ -13,7 +13,7 @@ trap finish SIGINT SIGTERM EXIT
 #URL=https://sciencetotouch.com/Music/spectrum/Sectrum.html
 URL=https://musiclab.chromeexperiments.com/spectrogram-service/?ln=de
 #FIT="--fit 1000x700"
-kiosk-browser -d $FIT --kiosk --fullscreen $URL &
+kiosk-browser $KIOSK_OPTS $FIT --kiosk --fullscreen $URL &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
 

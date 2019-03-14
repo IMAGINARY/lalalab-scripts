@@ -18,7 +18,7 @@ sleep 10s
 PIDS="$PIDS $!"
 
 # Launch the exhibit in the background
-kiosk-browser --kiosk --fullscreen --serve /opt/ai-jam/public index.html &
+kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --serve /opt/ai-jam/public index.html &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
 
