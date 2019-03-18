@@ -45,6 +45,7 @@ sudo systemctl disable apt-daily.timer apt-daily-upgrade.timer
         + `sudo chmod -R ag+rx /opt/kiosk-browser`
 - `sudo apt install git`
 - `sudo apt install qjackctl kmidimon vmpk qsynth aconnectgui pavucontrol`
+    + Grant realtime permissions for jack when asked 
 - `sudo apt install feh`
 - `sudo apt install htop`
 
