@@ -18,6 +18,19 @@
             - Turn off Bluetooth: OFF
         * Suspend and power button
             - Automatic suspend: Off
+- Disable auto update and update notifications:
+    + Ubuntu software
+        * Software & Updates
+            - Updates
+                + Automatically check for updates: Never
+                + When there are security updates: Display immediately
+                + When there are other updates: Display immediately
+                + Notify me of a new Ubuntu version: never
+    + Disable the updater service completely:
+    ```
+    sudo systemctl disable apt-daily.service apt-daily-upgrade.service
+sudo systemctl disable apt-daily.timer apt-daily-upgrade.timer
+    ```
 - `sudo apt upgrade`
 - `sudo apt install openbox`
 - `sudo reboot`
