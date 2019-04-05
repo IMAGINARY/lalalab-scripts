@@ -1,0 +1,59 @@
+#!/bin/bash
+# This script is supposed to run AI Jam exhibit.
+# The wrapper script is supposed to be visible in ps -a resp. ps -u `id -u` to make
+# it easy to kill it (by a script or manually)
+
+PIDS=""
+function finish {
+    kill $PIDS >/dev/null 2>&1
+}
+trap finish SIGINT SIGTERM EXIT
+
+# Launch the expressivness python backend
+cd $HOME/repos/con-espressione
+source `which activate` con_espressione
+python con_espressione.py &
+PIDS="$PIDS $!"
+
+# Launch the Pianoteq synthesizer if available
+if command -v $HOME/Downloads/Pianoteq/Pianoteq\ 6/amd64/Pianoteq\ 6 > /dev/null; then
+    echo "Using Pianoteq 6 synthesizer"
+
+    sleep 1s &
+    PID_SLEEP=$!
+    PIDS="$PIDS $PID_SLEEP"
+    wait $PID_SLEEP
+
+    $HOME/Downloads/Pianoteq/Pianoteq\ 6/amd64/Pianoteq\ 6 &
+    PIDS="$PIDS $!"
+    INTERNAL_SYNTH="false"
+
+    sleep 2s &
+    PID_SLEEP=$!
+    PIDS="$PIDS $PID_SLEEP"
+    wait $PID_SLEEP
+else
+    echo "Using internal synthesizer"
+    INTERNAL_SYNTH="true"
+fi
+
+# Launch the exhibit in the background
+DEBUG_TOOLS="true"
+kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --cover-displays 0 --serve $HOME/repos/con-espressione-ui src/index.html?showDebugTools=$DEBUG_TOOLS\&enableSynth=$INTERNAL_SYNTH &
+PID_UI=$!
+PIDS="$PIDS $PID_UI"
+
+while [ -z $UI_PORT ]
+do
+    sleep 1s
+    UI_PORT=$(lsof -p "$PID_UI" | grep "TCP localhost:[0-9]* (LISTEN)" | sed 's/.* TCP localhost:\([0-9]*\) .*/\1/')
+done
+echo "UI is being served via http://localhost:$UI_PORT"
+
+# TODO: Show menu on second screen
+#kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --cover-displays 1 http://localhost:$UI_PORT/...
+#PID_MENU=$!
+#PIDS="$PIDS $PID_MENU"
+
+# Wait for the exhibit to finish or until the signal trap is triggered
+wait $PID_UI
