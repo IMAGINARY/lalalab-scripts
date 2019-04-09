@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 # This script is supposed to run AI Jam exhibit.
 # The wrapper script is supposed to be visible in ps -a resp. ps -u `id -u` to make
 # it easy to kill it (by a script or manually)
@@ -11,12 +11,12 @@ trap finish SIGINT SIGTERM EXIT
 
 # Launch the expressivness python backend
 cd $HOME/repos/con-espressione
-source `which activate` con_espressione
+conda activate con_espressione
 python con_espressione.py &
 PIDS="$PIDS $!"
 
 # Launch the Pianoteq synthesizer if available
-if command -v $HOME/Downloads/Pianoteq/Pianoteq\ 6/amd64/Pianoteq\ 6 > /dev/null; then
+if command -v /opt/Pianoteq\ 6\ STAGE/amd64/Pianoteq\ 6\ STAGE > /dev/null; then
     echo "Using Pianoteq 6 synthesizer"
 
     sleep 1s &
@@ -24,7 +24,7 @@ if command -v $HOME/Downloads/Pianoteq/Pianoteq\ 6/amd64/Pianoteq\ 6 > /dev/null
     PIDS="$PIDS $PID_SLEEP"
     wait $PID_SLEEP
 
-    $HOME/Downloads/Pianoteq/Pianoteq\ 6/amd64/Pianoteq\ 6 &
+    /opt/Pianoteq\ 6\ STAGE/amd64/Pianoteq\ 6\ STAGE &
     PIDS="$PIDS $!"
     INTERNAL_SYNTH="false"
 
