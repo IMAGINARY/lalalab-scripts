@@ -37,8 +37,8 @@ else
     INTERNAL_SYNTH="true"
 fi
 
-# Launch the exhibit in the background
-DEBUG_TOOLS="true"
+# Launch the main UI on the primary display and send the process to the background
+DEBUG_TOOLS="false"
 kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --cover-displays 0 --serve $HOME/repos/con-espressione-ui src/index.html?showDebugTools=$DEBUG_TOOLS\&enableSynth=$INTERNAL_SYNTH &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
@@ -50,10 +50,10 @@ do
 done
 echo "UI is being served via http://localhost:$UI_PORT"
 
-# TODO: Show menu on second screen
-#kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --cover-displays 1 http://localhost:$UI_PORT/...
-#PID_MENU=$!
-#PIDS="$PIDS $PID_MENU"
+# Launch menu on secondary display
+kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --cover-displays 1 http://localhost:$UI_PORT/menu/applauncher2/index.html?cfg=con-espressione &
+PID_MENU=$!
+PIDS="$PIDS $PID_MENU"
 
 # Wait for the exhibit to finish or until the signal trap is triggered
 wait $PID_UI

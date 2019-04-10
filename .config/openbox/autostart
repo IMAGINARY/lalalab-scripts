@@ -1,5 +1,12 @@
 xset -dpms
 xset s off
-feh --bg-fill ~/Pictures/lalalab-wallpaper.png
 #fakeResolution 3840x2160
+
+# Con Espressione!
+#init-con-espressione && hidecursor repeat-exhibit exhibit-con-espressione &
+
 hidecursor repeat-exhibit exhibit-ai-jam &
+
+# Set La La Lab wallpaper
+# Should be done after screen setup
+feh --bg-fill ~/Pictures/lalalab-wallpaper.png

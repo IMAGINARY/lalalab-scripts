@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+xrandr --output DP-1 --primary --auto
+xrandr --output DP-2 --auto --right-of DP-1
+xinput map-to-output `xinput list --id-only 'Weida Hi-Tech                CoolTouchR System           '` DP-1
+xinput map-to-output `xinput list --id-only 'eGalax Inc. eGalaxTouch EXC3188-4426-08.00.00.00'` DP-2
