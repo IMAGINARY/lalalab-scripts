@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$UID" -ne 0 ]
+then
+    >&2 echo "This script requires superuser priviledges."
+    exit 1
+fi
+
+DIR="/opt/lalalab-scripts"
+mkdir -p "$DIR"
+cd "$DIR"
+git init
+git remote remove origin &> /dev/null || true
+git remote add origin https://github.com/IMAGINARY/lalalab-scripts.git
+git fetch --tags origin
+git reset --hard origin/feature/install-scripts
+git checkout feature/install-scripts
+
+rsync -a --info=ALL --exclude ".gitkeep" "$DIR/rootfs" /

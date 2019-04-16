@@ -20,6 +20,7 @@ apt upgrade -y
 # Install some useful packages
 apt install -y --no-install-recommends \
     aconnectgui \
+    augeas-tools \
     barrier \
     curl \
     feh \
@@ -58,14 +59,11 @@ wget -O "$TEMP_DEB" 'https://github.com/IMAGINARY/kiosk-browser/releases/downloa
 dpkg -i "$TEMP_DEB"
 rm -f "$TEMP_DEB"
 
-# Install La La Lab scripts
-cd /opt
-git clone https://github.com/IMAGINARY/lalalab-scripts.git
-cd /opt/lalalab-scripts/bin
-./update-lalalab-scripts
+# Fetch and execute lalalab-script installer
+curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/feature/install-scripts/bin/install-lalalab-scripts | bash
 
 # Install the exhibits
-for f in install-*; do
+for f in /opt/lalalab-scripts/bin/install-*; do
     bash "$f" || break # if needed 
 done
 
