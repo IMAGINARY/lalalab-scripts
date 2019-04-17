@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTNAME="$(hostname)"
+read HOSTNAME < /etc/hostname
 case "$HOSTNAME" in
         sabbath)
             echo "con-espressione"
