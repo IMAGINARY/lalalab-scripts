@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+HOSTNAME="$(hostname)"
+case "$HOSTNAME" in
+        sabbath)
+            echo "con-espressione"
+            ;;
+        *)
+            echo "none"
+            ;;
+esac
