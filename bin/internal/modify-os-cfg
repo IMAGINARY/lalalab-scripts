@@ -1,0 +1,24 @@
+#!/usr/bin/augtool -sf
+
+###########################################
+# preparations
+###########################################
+# fix faulty GDM lens
+set /augeas/load/Gdm/incl[. = "/etc/gdm/custom.conf"] "/etc/gdm3/custom.conf"
+set /augeas/load/Gdm/incl[. = "/etc/gdm/gdm.conf*"] "/etc/gdm3/gdm.conf*"
+
+# hijack Puppet lens for processing some generic INI files
+set /augeas/load/Puppet/incl[last()+1] "/var/lib/AccountsService/users/*"
+
+# load the modified augtool configuration
+load
+
+
+###########################################
+# configuration changes
+###########################################
+
+# auto-login user 'lalalab' into openbox session
+set /files/etc/gdm3/custom.conf/daemon/AutomaticLoginEnable "true"
+set /files/etc/gdm3/custom.conf/daemon/AutomaticLogin "lalalab"
+set /files/var/lib/AccountsService/users/lalalab/User/XSession "openbox"

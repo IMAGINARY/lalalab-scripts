@@ -6,6 +6,7 @@ then
     exit 1
 fi
 
+# retrieve files via git
 DIR="/opt/lalalab-scripts"
 mkdir -p "$DIR"
 cd "$DIR"
@@ -16,4 +17,8 @@ git fetch --tags origin
 git reset --hard origin/feature/install-scripts
 git checkout feature/install-scripts
 
+# sync the rootfs
 rsync -a --info=ALL --exclude ".gitkeep" "$DIR/rootfs" /
+
+# modify configuration files on the host
+/bin/internal/modify-os-config
