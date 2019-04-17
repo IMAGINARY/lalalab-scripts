@@ -21,4 +21,4 @@ git checkout feature/install-scripts
 rsync -a --info=ALL --exclude ".gitkeep" "$DIR/rootfs" /
 
 # modify configuration files on the host
-/bin/internal/modify-os-config
+./bin/internal/modify-os-cfg
