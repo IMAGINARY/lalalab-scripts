@@ -1,12 +1,9 @@
 xset -dpms
 xset s off
-#fakeResolution 3840x2160
 
-# Con Espressione!
-#init-con-espressione && hidecursor repeat-exhibit exhibit-con-espressione &
-
-hidecursor repeat-exhibit exhibit-ai-jam &
+# Set up the default environment for the default exhibit and run it
+init-default && hidecursor repeat-exhibit exhibit-default &
 
 # Set La La Lab wallpaper
-# Should be done after screen setup
-feh --bg-fill ~/Pictures/lalalab-wallpaper.png
+# Should be done after screen setup (which might )
+feh --bg-fill /opt/lalalab-scripts/Pictures/lalalab-wallpaper.png &
