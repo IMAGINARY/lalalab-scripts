@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+EXHIBIT="$(get-default-exhibit-by-hostname)"
+if command -v "exhibit-$EXHIBIT"; then
+    exec "init-$EXHIBIT"
+else
+    >&2 echo "Default exhibit not found"
+    exit 1
+fi

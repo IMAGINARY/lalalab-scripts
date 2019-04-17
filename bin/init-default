@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+EXHIBIT="$(get-default-exhibit-by-hostname)"
+if command -v "init-$EXHIBIT"; then
+    exec "init-$EXHIBIT"
+else
+    # noop
+fi
