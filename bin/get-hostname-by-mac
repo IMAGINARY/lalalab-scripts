@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# compute sha256 of lowercase mac address
+# (without : separators and terminating newline character)
+function mac2sha256 {
+    local MAC_ADDR_DIGITS=$(echo -n "$1" | tr '[:upper:]' '[:lower:]' | tr -d ':')
+    local MAC_ADDR_SHA=$(echo -n "$MAC_ADDR_DIGITS" | sha256sum | awk '{print $1}')
+    echo -n "$MAC_ADDR_SHA"
+}
+
+HOSTNAME=""
+ERROR_STR="None of the available interfaces has a known mac address:"
+
+for IFACE in `ls /sys/class/net/`
+do
+    read MAC_ADDR </sys/class/net/$IFACE/address
+    MAC_ADDR_SHA=$(mac2sha256 "$MAC_ADDR")
+    case "$MAC_ADDR_SHA" in
+        "90e01758ab67c7164bae088868ce5cbfd791bcfc86d051e9f3b9f2cebf4c876c")
+            HOSTNAME="sabbath"
+            ;;
+        "42ed70aa4e2f9cd4b6e19fe6d4e9375b4bccd4bf8ba0553e16f49049daff5fc8")
+            HOSTNAME="marley"
+            ;;
+        "d22b5c0565d553b8ea3ffdab4ec683fae12b0e2ca731b7e11ad6b5ad8cc28f09")
+            HOSTNAME="presley"
+            ;;
+        "a24952b8b4c7cdec2df1111598826cb241ef0053f49e6104b16b72f8d6f9f632")
+            HOSTNAME="bowie"
+            ;;
+        "a659036a34198106e64084f4bd89f893f0f77949caa28026e8ee2680c94ba882")
+            HOSTNAME="hendrix"
+            ;;
+        *)
+            ERROR_STR="$ERROR_STR
+iface: $IFACE mac: $MAC_ADDR sha256: $MAC_ADDR_SHA"
+            ;;
+    esac
+done
+
+if [ -z "$HOSTNAME" ]
+then
+    >&2 echo "$ERROR_STR"
+    exit 1
+else
+    echo "$HOSTNAME"
+    exit 0
+fi
