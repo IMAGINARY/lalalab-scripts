@@ -54,10 +54,18 @@ apt install -y --no-install-recommends \
     libindicator7 \
     '' # dummy entry to terminate the list
 
-TEMP_DEB="$(mktemp)"
-wget -O "$TEMP_DEB" 'https://github.com/IMAGINARY/kiosk-browser/releases/download/v0.11.0-alpha.4/kiosk-browser_0.11.0-alpha.4_amd64.deb'
-dpkg -i "$TEMP_DEB"
-rm -f "$TEMP_DEB"
+
+KIOSK_BROWSER_VERSION="0.11.0-alpha.4"
+KIOSK_BROWSER_VERSION_INSTALLED=$(dpkg-query --showformat='${Version} ${Status}' --show kiosk-browser 2> /dev/null | awk '$NF == "installed"{print $1}')
+if [ "$KIOSK_BROWSER_VERSION" = "$KIOSK_BROWSER_VERSION_INSTALLED" ]
+then
+    echo "kiosk-browser v$KIOSK_BROWSER_VERSION already installed"
+else
+    TEMP_DEB="$(mktemp)"
+    wget -O "$TEMP_DEB" "https://github.com/IMAGINARY/kiosk-browser/releases/download/v"$KIOSK_BROWSER_VERSION"/kiosk-browser_"$KIOSK_BROWSER_VERSION"_amd64.deb"
+    dpkg -i "$TEMP_DEB"
+    rm -f "$TEMP_DEB"
+fi
 
 # Fetch and execute lalalab-script installer
 curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/feature/install-scripts/bin/install-lalalab-scripts | bash
