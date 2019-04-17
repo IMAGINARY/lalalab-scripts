@@ -20,5 +20,10 @@ git checkout feature/install-scripts
 # sync the rootfs
 rsync -a --info=ALL --exclude ".gitkeep" "$DIR/rootfs" /
 
+# permanently set the hostname
+HOSTNAME=$(./bin/get-hostname-by-mac)
+echo "$HOSTNAME" > /etc/hostname
+hostname "$HOSTNAME"
+
 # modify configuration files on the host
 ./bin/internal/modify-os-cfg
