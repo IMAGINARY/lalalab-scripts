@@ -45,11 +45,6 @@ apt install -yq --no-install-recommends \
     vmpk \
     '' # dummy entry to terminate the list
 
-# Set hostname based on eth0 mac address
-# TODO
-
-# Set default exhibit based on hostname
-# TODO ln -s exhibit-something exhibit-default
 # Add the lalalab user to the audio group for accessing the realtime permissions
 # as set up by jackd above
 adduser lalalab audio
@@ -86,7 +81,5 @@ curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/feature/install-scripts
 for f in /opt/lalalab-scripts/bin/install-*; do
     bash "$f" || break # if needed 
 done
-
-# Make openbox the default session
 
 reboot
