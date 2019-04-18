@@ -18,7 +18,7 @@ git reset --hard origin/feature/install-scripts
 git checkout feature/install-scripts
 
 # sync the rootfs
-rsync -a --info=ALL --exclude ".gitkeep" "$DIR/rootfs" /
+rsync -va --info=ALL --exclude ".gitkeep" "$DIR/rootfs/" /
 
 # permanently set the hostname
 HOSTNAME=$(./bin/get-hostname-by-mac)
