@@ -8,6 +8,9 @@ fi
 
 set -e
 
+# don't prompt during installations
+export DEBIAN_FRONTEND=noninteractive
+
 # Add PPA for software not in the default Ubuntu repositories
 add-apt-repository -y ppa:jonathonf/barrier
 
@@ -21,7 +24,7 @@ apt upgrade -y
 echo "jackd2 jackd/tweak_rt_limits boolean false" | debconf-set-selections
 
 # Install some useful packages
-apt install -y --no-install-recommends \
+apt install -yq --no-install-recommends \
     aconnectgui \
     augeas-tools \
     barrier \
