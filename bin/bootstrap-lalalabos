@@ -75,7 +75,9 @@ else
 fi
 
 # Fetch and execute lalalab-script installer
+# Fetch and execute lalalab-script installer; put lalalab-scripts into PATH
 curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/feature/install-scripts/bin/install-lalalab-scripts | bash
+source "/opt/lalalab-scripts/rootfs/etc/profile.d/lalalab-bin-path.sh"
 
 # Install the exhibits
 for f in /opt/lalalab-scripts/bin/install-*; do
