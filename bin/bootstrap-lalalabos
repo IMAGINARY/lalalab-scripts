@@ -61,6 +61,7 @@ install-hexachord
 install-music-graph
 install-pink-trombone
 install-tonkreisel
+install-whitney
 
 # Reboot after some timeout
 TIMEOUT=30

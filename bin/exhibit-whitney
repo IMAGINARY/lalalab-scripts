@@ -10,7 +10,7 @@ function finish {
 trap finish SIGINT SIGTERM EXIT
 
 # Launch the exhibit in the background
-kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --serve ~/repos/whitney index.html &
+kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --serve /opt/whitney index.html &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
 
