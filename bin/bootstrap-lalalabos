@@ -63,6 +63,6 @@ do
     echo -ne "Rebooting in "$i"s. Press Ctrl+C to abort.\r";
     sleep 1;
 done
-if [ $? -ne 0 ]; then
+if [ $? -eq 0 ]; then
     reboot
 fi
