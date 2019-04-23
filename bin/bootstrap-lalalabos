@@ -59,6 +59,7 @@ install-kiosk-browser
 # Install the exhibits
 install-hexachord
 install-music-graph
+install-pink-trombone
 
 # Reboot after some timeout
 TIMEOUT=30
