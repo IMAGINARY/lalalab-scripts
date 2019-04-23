@@ -53,8 +53,11 @@ adduser lalalab audio
 curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/feature/install-scripts/bin/install-lalalab-scripts | bash
 source "/opt/lalalab-scripts/rootfs/etc/profile.d/lalalab-bin-path.sh"
 
-# Install the exhibits
+# Install dependencies common to many exhibits
 install-kiosk-browser
+
+# Install the exhibits
+install-music-graph
 
 # Reboot after some timeout
 TIMEOUT=30
