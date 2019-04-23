@@ -27,3 +27,8 @@ hostname "$HOSTNAME"
 
 # modify configuration files on the host
 ./bin/internal/modify-os-cfg
+
+# disable checking for updates, auto updates, upgrades and notifications
+./bin/internal/disable-auto-updates
+systemctl disable apt-daily.service apt-daily-upgrade.service
+systemctl disable apt-daily.timer apt-daily-upgrade.timer
