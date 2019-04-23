@@ -10,7 +10,7 @@ function finish {
 trap finish SIGINT SIGTERM EXIT
 
 # Launch the exhibit in the background
-kiosk-browser $KIOSK_OPTS --fit 1920x1366 --kiosk --fullscreen http://science-to-touch.com/LaLaLab/scalelab &
+kiosk-browser $KIOSK_OPTS --fit 1920x1366 --kiosk --fullscreen -s /opt/scale-lab index.html &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
 
