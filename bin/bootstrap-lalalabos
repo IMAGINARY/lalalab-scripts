@@ -57,6 +57,7 @@ source "/opt/lalalab-scripts/rootfs/etc/profile.d/lalalab-bin-path.sh"
 install-kiosk-browser
 
 # Install the exhibits
+install-beat-box
 install-hexachord
 install-music-graph
 install-pink-trombone
