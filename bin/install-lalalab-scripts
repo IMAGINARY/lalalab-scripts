@@ -32,3 +32,6 @@ hostname "$HOSTNAME"
 ./bin/internal/disable-auto-updates
 systemctl disable apt-daily.service apt-daily-upgrade.service
 systemctl disable apt-daily.timer apt-daily-upgrade.timer
+
+# update dconf setting based on rsynced config files
+dconf update
