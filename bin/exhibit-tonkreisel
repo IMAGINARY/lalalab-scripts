@@ -10,7 +10,7 @@ function finish {
 trap finish SIGINT SIGTERM EXIT
 
 # Launch the exhibit in the background
-kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --serve ~/repos/tonkreisel2 index.html &
+kiosk-browser $KIOSK_OPTS --kiosk --fullscreen --serve /opt/tonkreisel index.html &
 PID_UI=$!
 PIDS="$PIDS $PID_UI"
 

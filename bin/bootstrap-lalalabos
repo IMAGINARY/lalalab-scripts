@@ -60,6 +60,7 @@ install-kiosk-browser
 install-hexachord
 install-music-graph
 install-pink-trombone
+install-tonkreisel
 
 # Reboot after some timeout
 TIMEOUT=30
