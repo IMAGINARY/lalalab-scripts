@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$UID" -ne 0 ]
+then
+    >&2 echo "This script requires superuser priviledges."
+    exit 1
+fi
+
+# Target version
+COMMITISH="3ba27e6e9e406b48a9878f634fbc3b7c92185bfa"
+
+# Make sure the folder exists
+INSTALL_DIR="/opt/hexachord"
+mkdir -p "$INSTALL_DIR"
+
+cd "$INSTALL_DIR"
+git init
+git remote remove origin &> /dev/null || true
+git remote add origin https://gitlab.com/Guichaoua/web-hexachord.git
+git fetch --tags origin
+git reset --hard origin/master
+git checkout "$COMMITISH"
