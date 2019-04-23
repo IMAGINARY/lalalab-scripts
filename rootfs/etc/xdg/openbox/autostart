@@ -6,4 +6,4 @@ init-default && hidecursor repeat-exhibit exhibit-default &
 
 # Set La La Lab wallpaper
 # Should be done after screen setup (which might )
-feh --bg-fill /opt/lalalab-scripts/Pictures/lalalab-wallpaper.png &
+feh --bg-fill /opt/lalalab-scripts/assets/lalalab-wallpaper.png &
