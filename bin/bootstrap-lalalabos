@@ -28,6 +28,7 @@ apt install -yq --no-install-recommends \
     aconnectgui \
     augeas-tools \
     barrier \
+    compton \
     curl \
     feh \
     git \
