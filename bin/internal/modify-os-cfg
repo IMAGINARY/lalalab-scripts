@@ -7,6 +7,10 @@
 set /augeas/load/Gdm/incl[. = "/etc/gdm/custom.conf"] "/etc/gdm3/custom.conf"
 set /augeas/load/Gdm/incl[. = "/etc/gdm/gdm.conf*"] "/etc/gdm3/gdm.conf*"
 
+# fix faulty Xorg lens
+set /augeas/load/Xorg/incl[. = "/etc/X11/xorg.conf.d/*.conf"] "/usr/share/X11/xorg.conf.d/*.conf"
+set /augeas/load/Xorg/incl[. = "/etc/X11/xorg.conf"] "/usr/share/X11/xorg.conf"
+
 # hijack Puppet lens for processing some generic INI files
 set /augeas/load/Puppet/incl[last()+1] "/var/lib/AccountsService/users/*"
 
@@ -22,3 +26,24 @@ load
 set /files/etc/gdm3/custom.conf/daemon/AutomaticLoginEnable "true"
 set /files/etc/gdm3/custom.conf/daemon/AutomaticLogin "lalalab"
 set /files/var/lib/AccountsService/users/lalalab/User/XSession "openbox"
+
+
+################################################################################
+# the following changes caused more harm than good and are therefore disabled
+# by default
+################################################################################
+
+# tweak Intel GPU kernel driver
+#set /files/etc/modprobe.d/i915.conf/options[. = "i915"] "i915"
+#set /files/etc/modprobe.d/i915.conf/options[. = "i915"]/enable_dc "1"
+#set /files/etc/modprobe.d/i915.conf/options[. = "i915"]/enable_fbc "1"
+#set /files/etc/modprobe.d/i915.conf/options[. = "i915"]/semaphores "1"
+#set /files/etc/modprobe.d/i915.conf/options[. = "i915"]/enable_guc "3"
+
+# enable tear-free mode for Intel GPUs
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Identifier "Intel Graphics"
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Driver "intel"
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Option[. = "TearFree"] "TearFree"
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Option[. = "TearFree"]/value "true"
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Option[. = "TripleBuffer"] "TripleBuffer"
+#set /files/usr/share/X11/xorg.conf.d/20-intel.conf/Device[Identifier = "Intel Graphics"]/Option[. = "TripleBuffer"]/value "true"
