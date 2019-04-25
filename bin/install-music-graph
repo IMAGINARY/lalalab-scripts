@@ -7,7 +7,7 @@ then
 fi
 
 # Music graph is a Windows program, so run it via wine
-apt install wine-stable
+apt install -yq wine-stable
 
 # Target version
 TAG="v0.2"
