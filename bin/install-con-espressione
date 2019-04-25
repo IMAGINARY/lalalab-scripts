@@ -55,6 +55,8 @@ After=syslog.target
 Type=simple
 ExecStart=/usr/sbin/leapd
 KillSignal=SIGKILL
+Restart=always
+RestartSec=10ms
 
 [Install]
 WantedBy=multi-user.target
