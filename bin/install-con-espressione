@@ -68,7 +68,7 @@ fi
 ################################################################################
 # Install the backend
 ################################################################################
-apt install -yq pkg-config libjack0 libjack-dev libasound2-dev
+apt install -yq pkg-config libjack-jackd2-0 libjack-jackd2-dev libasound2-dev
 
 # Target versions
 BACKEND_COMMITISH="f80058b8ec671995dad39e615afc9c13fe20c950"
