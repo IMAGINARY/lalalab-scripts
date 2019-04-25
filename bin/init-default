@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 EXHIBIT="$(get-default-exhibit-by-hostname)"
-if command -v "init-$EXHIBIT"; then
+if command -v "init-$EXHIBIT" > /dev/null
+then
     exec "init-$EXHIBIT"
 else
-    # noop
+    echo "No initialization script found for $EXHIBIT"
 fi
