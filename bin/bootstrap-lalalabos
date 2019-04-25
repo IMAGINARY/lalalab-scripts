@@ -60,6 +60,7 @@ install-kiosk-browser
 
 # Install the exhibits
 install-beat-box
+install-con-espressione
 install-hexachord
 install-music-graph
 install-note-compass
