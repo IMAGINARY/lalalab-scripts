@@ -71,13 +71,11 @@ install-show-me-music
 install-spectrum-analyzer
 install-whitney
 
-# Reboot after some timeout
-TIMEOUT=30
-for (( i=$TIMEOUT; i>=0; i-- ))
-do
-    echo -ne "Rebooting in "$i"s. Press Ctrl+C to abort.\r";
-    sleep 1;
+# Prompt user for reboot
+echo "Do you wish to rebeoot now?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes) reboot; break;;
+        No) break;;
+    esac
 done
-if [ $? -eq 0 ]; then
-    reboot
-fi
