@@ -73,7 +73,7 @@ fi
 apt install -yq pkg-config libjack-jackd2-0 libjack-jackd2-dev libasound2-dev
 
 # Target versions
-BACKEND_COMMITISH="f80058b8ec671995dad39e615afc9c13fe20c950"
+BACKEND_COMMITISH="05cc3193378e9d597439fdf141f4c45b541228ec"
 
 # Make sure the folder exists
 BACKEND_INSTALL_DIR="/opt/con-espressione/backend"
@@ -102,7 +102,7 @@ fi
 ################################################################################
 
 # Target versions
-FRONTEND_COMMITISH="d726ad2fedffc33facc3f423960446d0262fe4f4"
+FRONTEND_COMMITISH="d1064ba6ea288b0b82d29df6bb45cbe3bf6ded53"
 
 # Make sure the folder exists
 FRONTEND_INSTALL_DIR="/opt/con-espressione/frontend"
