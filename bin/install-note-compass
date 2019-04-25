@@ -10,7 +10,7 @@ fi
 COMMITISH="3fb61a4470a362219c543e51cdcadd71352713c0"
 
 # Make sure the folder exists
-INSTALL_DIR="/opt/tonkreisel"
+INSTALL_DIR="/opt/note-compass"
 mkdir -p "$INSTALL_DIR"
 
 cd "$INSTALL_DIR"
