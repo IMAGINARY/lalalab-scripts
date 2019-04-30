@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$UID" -ne 0 ]
+then
+    >&2 echo "This script requires superuser priviledges."
+    exit 1
+fi
+
+# Target version
+COMMITISH="89de00d7b131a0bb95c6ab1e6a524e181b6a4e38"
+
+# Make sure the folder exists
+INSTALL_DIR="/opt/harmonics-explorer"
+mkdir -p "$INSTALL_DIR"
+
+cd "$INSTALL_DIR"
+git init
+git remote remove origin &> /dev/null || true
+git remote add origin https://github.com/IMAGINARY/harmonics-explorer.git
+git fetch --tags origin
+git reset --hard origin/master
+git checkout "$COMMITISH"
