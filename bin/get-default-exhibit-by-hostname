@@ -2,10 +2,17 @@
 
 read HOSTNAME < /etc/hostname
 case "$HOSTNAME" in
-        sabbath)
-            echo "con-espressione"
-            ;;
-        *)
-            echo "none"
-            ;;
+    bowie)      echo "scale-lab" ;;
+    falco)      echo "ai-jam" ;;
+    hendrix)    echo "whitney" ;;
+    khultum)    echo "pentatonic-scales" ;;
+    madonna)    echo "spectrum-analyzer" ;;
+    marley)     echo "hexachord" ;;
+    pistols)    echo "beat-box" ;;
+    presley)    echo "show-me-music" ;;
+    sabbath)    echo "con-espressione" ;;
+    shankar)    echo "harmonics-explorer" ;;
+    simone)     echo "music-graph" ;;
+    sosa)       echo "pink-trombone" ;;
+    *)          echo "none" ;;
 esac
