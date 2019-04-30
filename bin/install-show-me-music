@@ -7,29 +7,18 @@ then
 fi
 
 # Target version
-TAG="2019-04-07"
+COMMITISH="3e94b4c063fed5e8b1a4ecddfeb66dd124c262a0"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/show-me-music"
 mkdir -p "$INSTALL_DIR"
 
-# Check if the target version is already installed (test for symlink created by this script)
-if [ -e "$INSTALL_DIR/$TAG.html" ]; then
-    echo "show-me-music $TAG already installed"
-else
-    # Remove previous versions
-    rm -rf "$INSTALL_DIR"/{*,.*} 2> /dev/null
+cd "$INSTALL_DIR"
+git init
+git remote remove origin &> /dev/null || true
+git remote add origin https://github.com/CindyJS/lalalab-apps.git
+git fetch --tags origin
+git reset --hard origin/master
+git checkout "$COMMITISH"
 
-    # Download and unpack the ZIP file
-    TEMP_ZIP="$(mktemp)"
-    TEMP_DIR="$(mktemp -d)"
-    wget -O "$TEMP_ZIP" "https://www.dropbox.com/sh/54esslpdwop9r40/AAB-JY50lzqg6iBNy8j68o-pa?dl=1"
-    unzip "$TEMP_ZIP" ShowMeMusic.zip -d "$TEMP_DIR"
-    unzip "$TEMP_DIR/ShowMeMusic.zip" -d "$TEMP_DIR"
-    mv "$TEMP_DIR/ShowMeMusic/"* "$INSTALL_DIR/"
-    rm -f "$TEMP_ZIP"
-    rm -rf "$TEMP_DIR"
-    
-    # Create a symlink to the exe file to serve as identifier for the installed version
-    ln -s "$INSTALL_DIR/index.html" "$INSTALL_DIR/$TAG.html"
-fi
+./install.sh
