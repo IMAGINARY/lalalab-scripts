@@ -10,7 +10,7 @@ fi
 apt install -yq wine-stable
 
 # Target version
-TAG="v0.2"
+TAG="v0.3"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/music-graph"
@@ -25,8 +25,12 @@ else
 
     # Download and unpack the ZIP file
     TEMP_ZIP="$(mktemp)"
+    TEMP_DIR="$(mktemp -d)"
     wget -O "$TEMP_ZIP" "https://github.com/grandao/music-graph/releases/download/$TAG/music-graph-$TAG.zip"
-    unzip "$TEMP_ZIP" -d "$INSTALL_DIR"
+    unzip "$TEMP_ZIP" -d "$TEMP_DIR"
+    shopt -s nullglob
+    mv -v "$TEMP_DIR/music-graph/"{*,.[^.]*,..?*} "$INSTALL_DIR"
+    rm -rf "$TEMP_DIR"
     rm -f "$TEMP_ZIP"
     
     # Create a symlink to the exe file to serve as identifier for the installed version
