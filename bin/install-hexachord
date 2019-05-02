@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="3ba27e6e9e406b48a9878f634fbc3b7c92185bfa"
+COMMITISH="e78480ba897fd4b6b4985d6f28a6436c7064b54c"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/hexachord"
