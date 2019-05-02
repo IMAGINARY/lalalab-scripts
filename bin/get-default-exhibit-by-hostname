@@ -4,8 +4,10 @@ read HOSTNAME < /etc/hostname
 case "$HOSTNAME" in
     bowie)      echo "scale-lab" ;;
     brain)      echo "ai-jam" ;;
+    giorgio)    echo "ai-jam" ;;
     hendrix)    echo "whitney" ;;
     khultum)    echo "pentatonic-scales" ;;
+    laurie)     echo "ai-jam" ;;
     madonna)    echo "spectrum-analyzer" ;;
     marley)     echo "hexachord" ;;
     pistols)    echo "beat-box" ;;
