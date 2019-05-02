@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="e6c039efac1619cfa140727f55466af2d565e678"
+COMMITISH="904027a7d77b5b710e8b6d41e0a126297b9c4f6f"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/beat-box"
