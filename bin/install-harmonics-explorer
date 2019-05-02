@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="89de00d7b131a0bb95c6ab1e6a524e181b6a4e38"
+COMMITISH="build-v0.1"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/harmonics-explorer"
@@ -18,5 +18,5 @@ git init
 git remote remove origin &> /dev/null || true
 git remote add origin https://github.com/IMAGINARY/harmonics-explorer.git
 git fetch --tags origin
-git reset --hard origin/master
+git reset --hard origin/gh-pages
 git checkout "$COMMITISH"
