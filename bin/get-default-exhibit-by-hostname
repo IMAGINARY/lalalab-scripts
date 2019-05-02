@@ -3,7 +3,7 @@
 read HOSTNAME < /etc/hostname
 case "$HOSTNAME" in
     bowie)      echo "scale-lab" ;;
-    brain)      echo "ai-jam" ;;
+    brian)      echo "ai-jam" ;;
     giorgio)    echo "ai-jam" ;;
     hendrix)    echo "whitney" ;;
     khultum)    echo "pentatonic-scales" ;;

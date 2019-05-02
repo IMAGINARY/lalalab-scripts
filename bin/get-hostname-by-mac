@@ -16,7 +16,7 @@ do
     read MAC_ADDR </sys/class/net/$IFACE/address
     MAC_ADDR_SHA=$(mac2sha256 "$MAC_ADDR")
     case "$MAC_ADDR_SHA" in
-        "3e783f64be7361d2d7a1748ed16a3b30e08e420766de39f6ebd4792c8fb171b8") HOSTNAME="brain";;
+        "3e783f64be7361d2d7a1748ed16a3b30e08e420766de39f6ebd4792c8fb171b8") HOSTNAME="brian";;
         "a24952b8b4c7cdec2df1111598826cb241ef0053f49e6104b16b72f8d6f9f632") HOSTNAME="bowie";;
         "704382916884c256250bd9ec1c731151ee8badb05cc1c60248ad92fda7062322") HOSTNAME="giorgio";;
         "a659036a34198106e64084f4bd89f893f0f77949caa28026e8ee2680c94ba882") HOSTNAME="hendrix";;
