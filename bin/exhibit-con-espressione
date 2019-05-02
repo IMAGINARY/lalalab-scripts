@@ -26,13 +26,14 @@ if command -v "$PIANOTEQ_SYNTH" > /dev/null; then
     wait $PID_SLEEP
 
     "$PIANOTEQ_SYNTH" &
-    PIDS="$PIDS $!"
+    PIANOTEQ_SYNTH_PID=$!
+    PIDS="$PIDS $PIANOTEQ_SYNTH_PID"
     INTERNAL_SYNTH="false"
 
-    sleep 2s &
-    PID_SLEEP=$!
-    PIDS="$PIDS $PID_SLEEP"
-    wait $PID_SLEEP
+    xdotool search --sync --all --pid="$PIANOTEQ_SYNTH_PID" --onlyvisible --class '.*' windowminimize > /dev/null &
+    PID_XDOTOOL=$!
+    PIDS="$PIDS $PID_XDOTOOL"
+    wait $PID_XDOTOOL
 else
     echo "Using internal synthesizer"
     INTERNAL_SYNTH="true"
