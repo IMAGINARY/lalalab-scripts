@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="c6137fafcfe3abde7b3e9d4bde97fc3ed9cef959"
+COMMITISH="fa51d6d34aee7d1fac64d05e06800c5524e0a6bc"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/spectrum-analyzer"
