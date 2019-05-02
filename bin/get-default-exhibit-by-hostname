@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-read HOSTNAME < /etc/hostname
-case "$HOSTNAME" in
+case $(hostname) in
     bowie)      echo "scale-lab" ;;
     brian)      echo "ai-jam" ;;
     giorgio)    echo "ai-jam" ;;
