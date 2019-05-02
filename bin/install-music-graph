@@ -10,7 +10,7 @@ fi
 apt install -yq wine-stable
 
 # Target version
-TAG="v0.3"
+TAG="v0.4"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/music-graph"
