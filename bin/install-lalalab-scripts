@@ -35,3 +35,6 @@ systemctl disable apt-daily.timer apt-daily-upgrade.timer
 
 # update dconf setting based on rsynced config files
 dconf update
+
+# update grub menu
+update-grub

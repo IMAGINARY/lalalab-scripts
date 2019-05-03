@@ -27,6 +27,10 @@ set /files/etc/gdm3/custom.conf/daemon/AutomaticLoginEnable "true"
 set /files/etc/gdm3/custom.conf/daemon/AutomaticLogin "lalalab"
 set /files/var/lib/AccountsService/users/lalalab/User/XSession "openbox"
 
+# For some reason, GRUB recordfail is triggered after almost every reboot.
+# I don't know how to fix it, so I reduce the boot delay introduced by
+# recordfail to just a couple of seconds.
+set /files/etc/default/grub/GRUB_RECORDFAIL_TIMEOUT "3"
 
 ################################################################################
 # the following changes caused more harm than good and are therefore disabled
