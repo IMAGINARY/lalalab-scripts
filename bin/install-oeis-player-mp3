@@ -37,8 +37,7 @@ augtool -s <<EOF
 set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/#uri "/oeis-player-mp3/"
 set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/alias "/opt/oeis-player-mp3/dist/"
 set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/autoindex "off"
-set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/index[0] "index.html"
-set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/index[1] "index.htm"
+set /files/etc/nginx/sites-available/default/server/location[#uri = "/oeis-player-mp3/"]/index "index.html index.htm"
 EOF
 
 systemctl enable nginx
