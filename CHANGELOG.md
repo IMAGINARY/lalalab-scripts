@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Bootstrapping script for installing on top of Ubuntu 18.04.2
+- `KIOSK_OPTS` environment variable for adding options to some kiosk-browser based exhibits 
+- BASH scripts for  La La Lab exhibits
+- Support for immutable root file system
+- Realtime permissions for `audio` group
+- Disable auto updates and notifications
+- `compton` compositor to prevent screen tearing
+- Hostname assignment based on sha256 hashes of MAC addresses 
+- Reduce GRUB `recordfail` timeout to 5s
+- Global `nginx` webserver
+- La La Lab wallpaper
+
+### Changed
+- Select default exhibit via host name or user configuration
+- Repurpose MiMa script for use in La La Lab
+- Use augtool for most modifications of system-wide config files
+- Install scripts system wide
+
+### Removed
+- BASH scripts for MiMa exhibits
+
 ## [0.1.1] - 2018-12-14
 ### Fixed
 - Install script must not copy top level elements
