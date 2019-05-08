@@ -14,8 +14,8 @@ git init
 git remote remove origin &> /dev/null || true
 git remote add origin https://github.com/IMAGINARY/lalalab-scripts.git
 git fetch --tags origin
-git reset --hard origin/feature/install-scripts
-git checkout feature/install-scripts
+git reset --hard origin/master
+git checkout master
 
 # sync the rootfs
 rsync -va --info=ALL --exclude ".gitkeep" "$DIR/rootfs/" /
