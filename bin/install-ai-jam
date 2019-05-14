@@ -20,7 +20,7 @@ apt install -yq \
     '' # dummy entry to terminate the list
 
 # Target version
-COMMITISH="v1.1"
+COMMITISH="v1.1.1"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/ai-jam"
