@@ -109,7 +109,7 @@ fi
 ################################################################################
 
 # Target versions
-FRONTEND_COMMITISH="b76e9294d29a381396d387a6b677150f4fbff447"
+FRONTEND_COMMITISH="d9e142883fa197d86c7040a50a1023233427c4ea"
 
 # Make sure the folder exists
 FRONTEND_INSTALL_DIR="/opt/con-espressione/frontend"
