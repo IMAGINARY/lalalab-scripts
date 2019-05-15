@@ -30,6 +30,7 @@ do
         "77d25af539b72e05b6326857cd4431d8253553e51a9253d3764c34974eac675a") HOSTNAME="shankar";;
         "0a59f852c1d8bafdf68c5d7454f297f62d820295db77f1364815b1856cafb8a3") HOSTNAME="simone";;
         "ee8de05bcb0c635b74044de4db2ec350d520c39ba3a5aa542106d6674791d8f7") HOSTNAME="sosa";;
+        "3353a9ae5becc5abe1355b5e2476873d0159d06890e2a05cb896437a491a65ad") HOSTNAME="sunn";;
         *)
             ERROR_STR="$ERROR_STR
 iface: $IFACE mac: $MAC_ADDR sha256: $MAC_ADDR_SHA"

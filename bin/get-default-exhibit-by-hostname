@@ -15,5 +15,6 @@ case $(hostname) in
     shankar)    echo "harmonics-explorer" ;;
     simone)     echo "music-graph" ;;
     sosa)       echo "pink-trombone" ;;
+    sunn)       echo "harmonic-series" ;;
     *)          echo "none" ;;
 esac
