@@ -12,7 +12,7 @@ apt install -yq \
     '' # dummy entry to terminate the list
 
 # Target version
-COMMITISH="v1.0.3"
+COMMITISH="v1.0.4"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/oeis-player-mp3"
