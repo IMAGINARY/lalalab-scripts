@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="904027a7d77b5b710e8b6d41e0a126297b9c4f6f"
+COMMITISH="v1.2"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/show-me-music"
