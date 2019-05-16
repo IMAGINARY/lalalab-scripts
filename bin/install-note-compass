@@ -12,7 +12,7 @@ apt install -yq \
     '' # dummy entry to terminate the list
 
 # Target version
-COMMITISH="082431bbd5d5e5d455770206bc3684b436ea8a7b"
+COMMITISH="b6bf40510032d6dc0552ed7b30fda57a6aa1b8e6"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/note-compass"
