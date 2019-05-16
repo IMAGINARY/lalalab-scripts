@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="de4b0b31e3d9dff0331a9a693674813f8cc3688b"
+COMMITISH="v1.1"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/scale-lab"
