@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="build-v1.0"
+COMMITISH="build-v1.1"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/harmonics-explorer"
