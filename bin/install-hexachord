@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="e78480ba897fd4b6b4985d6f28a6436c7064b54c"
+COMMITISH="4afa09e9a3f9d257d4bf9552c3908227ce7b33fb"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/hexachord"
@@ -16,7 +16,7 @@ mkdir -p "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 git init
 git remote remove origin &> /dev/null || true
-git remote add origin https://gitlab.com/Guichaoua/web-hexachord.git
+git remote add origin https://github.com/IMAGINARY/web-hexachord.git
 git fetch --tags origin
 git reset --hard origin/master
 git checkout "$COMMITISH"
