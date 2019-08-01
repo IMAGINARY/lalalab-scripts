@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#addCloseButton java -jar "/opt/frozenlight/_frozenlight-1.2.2.jar" -mu -f "$@" &
+addCloseButton java -jar "/opt/frozenlight/frozenlight-1.2.2.jar" -mu -f "$@" &
+PID=$!
+
+# Kill the exhibit if it is still running whe the script exits
+trap "kill $PID >/dev/null 2>&1" SIGINT SIGTERM EXIT
+
+# Wait for the exhibit to finish or until the signal trap is triggered
+wait

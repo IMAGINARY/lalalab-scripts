@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#SHOW_CLOSE_BUTTON=1
+
+#if [[ ! -v 'SHOW_CLOSE_BUTTON' ]]; then
+#  # read ~/.show_close_button as fallback
+#  [[ -r "$HOME/.show_close_button" ]] && source "$HOME/.show_close_button"
+#fi
+
+SELFDIR=$(dirname $(readlink -f $0))
+
+if [[ "${SHOW_CLOSE_BUTTON}" = "1" ]]; then
+    if [[ ! -r "$SELFDIR/../assets/x_64x64.png" ]]; then
+      echo "WARNING: missing readable '$SELFDIR/../assets/x_64x64.png'!"
+    else
+      exec qclosebutton "$SELFDIR/../assets/x_64x64.png" "$@"
+    fi
+fi
+
+# [[ "${SHOW_CLOSE_BUTTON}" = "0" ]] && 
+exec "$@"
