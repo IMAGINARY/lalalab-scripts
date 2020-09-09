@@ -15,6 +15,16 @@ source /opt/con-espressione/miniconda3/bin/activate /opt/con-espressione/conda-e
 python con_espressione.py &
 PIDS="$PIDS $!"
 
+# Wait for the MIDI output
+echo -n 'Waiting for con-espressione MIDI output';
+until (aconnect -o | grep 'con-espressione' 2>&1 > /dev/null); do
+    echo -n .
+    sleep 1s &
+    PID_SLEEP=$!
+    wait $PID_SLEEP
+done
+echo ' Done.'
+
 # Launch the Pianoteq synthesizer if available
 PIANOTEQ_SYNTH="/opt/con-espressione/Pianoteq 6 STAGE/amd64/Pianoteq 6 STAGE"
 if command -v "$PIANOTEQ_SYNTH" > /dev/null; then
