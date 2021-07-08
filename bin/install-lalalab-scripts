@@ -14,8 +14,8 @@ git init
 git remote remove origin &> /dev/null || true
 git remote add origin https://github.com/IMAGINARY/lalalab-scripts.git
 git fetch --tags origin
-git reset --hard origin/master
-git checkout master
+git reset --hard origin/exhibition/eth-science-museum
+git checkout exhibition/eth-science-museum
 
 # sync the rootfs
 rsync -va --info=ALL --exclude ".gitkeep" "$DIR/rootfs/" /
