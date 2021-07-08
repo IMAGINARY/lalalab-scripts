@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 case $(hostname) in
+    LaLaLab-ScaleLab)            echo "scale-lab" ;;
+    LaLaLab-SpectrumAnalyzer)    echo "spectrum-analyzer" ;;
     bowie)      echo "scale-lab" ;;
     brian)      echo "ai-jam" ;;
     giorgio)    echo "ai-jam" ;;
