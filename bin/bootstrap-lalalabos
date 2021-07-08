@@ -52,7 +52,7 @@ apt install -yq --no-install-recommends \
 adduser lalalab audio
 
 # Fetch and execute lalalab-script installer; put lalalab-scripts into PATH
-curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/master/bin/install-lalalab-scripts | bash
+curl -L https://github.com/IMAGINARY/lalalab-scripts/raw/exhibition/eth-science-museum/bin/install-lalalab-scripts | bash
 source "/opt/lalalab-scripts/rootfs/etc/profile.d/lalalab-bin-path.sh"
 
 # Install dependencies common to many exhibits

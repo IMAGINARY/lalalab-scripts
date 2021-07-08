@@ -23,7 +23,7 @@ The script `bin/bootstrap-lalalabos` will install required packages, the scripts
 well as most of the exhibits:
 
 ```
-wget https://raw.githubusercontent.com/IMAGINARY/lalalab-scripts/master/bin/bootstrap-lalalabos
+wget https://raw.githubusercontent.com/IMAGINARY/lalalab-scripts/exhibition/eth-science-museum/bin/bootstrap-lalalabos
 chmod +x bootstrap-lalalabos
 sudo ./bootstrap-lalalabos
 ```
