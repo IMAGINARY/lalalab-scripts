@@ -7,7 +7,7 @@ then
 fi
 
 # Target version
-COMMITISH="v1.1"
+COMMITISH="a102541fc0005e45a2df7e9f79de69e5211bb37f"
 
 # Make sure the folder exists
 INSTALL_DIR="/opt/scale-lab"
@@ -16,7 +16,7 @@ mkdir -p "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 git init
 git remote remove origin &> /dev/null || true
-git remote add origin https://github.com/CindyJS/ScaleLab.git
+git remote add origin https://github.com/IMAGINARY/ScaleLab.git
 git fetch --tags origin
-git reset --hard origin/master
+git reset --hard origin/exhibition/eth-science-museum
 git checkout "$COMMITISH"
