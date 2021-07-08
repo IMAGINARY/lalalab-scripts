@@ -79,8 +79,8 @@ The init script is supposed to run only once and it needs to exit once the init 
 By default, init scripts and exhibits are selected via the host name of the system (see `bin/get-default-exhibit-by-hostname`).
 It is possible to override this behavior to allow for user-defined exhibits. If the following executables are present, they will be run instead of the system-wide default:
 ```
-~/.exhibition/default-init
-~/.exhibition/default-exhibit
+~/.exhibition/init-default
+~/.exhibition/exhibit-default
 ```
 Note that these executables can be scripts themselves or just symlinks to one of the `init-*` respectively `exhibit-*` scripts. If no special initialization is needed, you can just create a symlink to `true`:
 ```
