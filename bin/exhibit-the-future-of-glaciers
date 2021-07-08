@@ -1,0 +1,19 @@
+#!/bin/bash
+# This script is supposed to run any exhibit. In this example, it is the kiosk browser,
+# but it can be anything.
+# The wrapper script is supposed to be visible in ps -a resp. ps -u `id -u` to make
+# it easy to kill it (by a script or manually)
+
+# Launch the exhibit in the background
+# math-only-cindy.config.yml mfo.config.yml
+
+addCloseButton "kiosk-browser" $KIOSK_OPTS --kiosk --localhost --always-on-top --fullscreen --cover-displays 1 -s "/opt/the-future-of-glaciers/" &
+# addCloseButton "kiosk-browser" $KIOSK_OPTS --kiosk --localhost --always-on-top --fullscreen --cover-displays 1 "http://localhost/the-future-of-glaciers/" &
+
+PID=$!
+
+# Kill the exhibit if it is still running whe the script exits
+trap "kill $PID >/dev/null 2>&1" SIGINT SIGTERM EXIT
+
+# Wait for the exhibit to finish or until the signal trap is triggered
+wait
