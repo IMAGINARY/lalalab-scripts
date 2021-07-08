@@ -103,3 +103,9 @@ fakeResolution 3840x2160
 will allocate a `3840x2160` frame buffer and will scale it down to `1920x1080`.
 
 If aspect ratios do not match, the image will be stretched.
+
+# Known issues
+
+## Different audio volume for left and right channel
+
+For some yet unknown reason, the two channels of headphone audio output sometimes use different volume. Changing the settings in `pavucontrol` doesn't seem to persist reboots. [These instructions](https://daniel-lange.com/archives/144-Unbalanced-volume-channels-on-headset-audio.html) using `alsamixer` and `sudo alsactl store` seem to permanently solve the issue.
