@@ -26,8 +26,8 @@ systemctl enable assign-hostname.service
 systemctl start assign-hostname.service
 
 # enable power-off timer
-systemctl enable systemd-poweroff.timer
-systemctl start systemd-poweroff.timer
+systemctl enable poweroff.timer
+systemctl start poweroff.timer
 
 # modify configuration files on the host
 ./bin/internal/modify-os-cfg

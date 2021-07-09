@@ -1,0 +1,7 @@
+[Unit]
+Description=Power-Off
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl --force poweroff
