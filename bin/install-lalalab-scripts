@@ -23,6 +23,9 @@ rsync -va --info=ALL --exclude ".gitkeep" "$DIR/rootfs/" /
 # Disable time updates via network
 timedatectl set-ntp 0
 
+# Use UTC as local time zone to stay in sync with BIOS real time clock (RTC)
+timedatectl set-timezone UTC
+
 # enable a service to automatically set the hostname during boot
 systemctl daemon-reload
 systemctl enable assign-hostname.service
